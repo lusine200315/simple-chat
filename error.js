@@ -21,12 +21,18 @@ class InvalidLogin extends AppError {
         super(message, 400);
     }
 }
+class InvalidTarget extends AppError {
+    constructor(message = 'Namak is required') {
+        super(message, 400);
+    }
+}
 
 class InvalidNamak extends AppError {
     constructor(message = 'Namak is required') {
         super(message, 400);
     }
 }
+
 
 class InvalidMessage extends AppError {
     constructor(message = 'Invalid message format') {

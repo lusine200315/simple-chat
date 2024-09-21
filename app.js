@@ -2,7 +2,7 @@ const webSocket = require("ws");
 const { EmptyMessage, ClientExist, InvalidMessage, InvalidNamak } = require("./error");
 
 //create server socket
-const server = new webSocket.Server({ port: 4000 });
+const server = new webSocket.Server({ port: 4001 });
 
 const all_clients = {};
 
