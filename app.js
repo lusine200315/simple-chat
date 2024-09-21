@@ -25,18 +25,24 @@ server.on("connection", (client) => {
       // throw new EmptyMessage();
     };
 
-    if('login' in parsedMsg) {      
+    if(parsedMsg.login) {      
       if(parsedMsg.login in all_clients) {
         client.send('Client already exist');
         // throw new ClientExist();
-        
       };
 
       all_clients[parsedMsg.login] = client;
       client.send('Welocome ' + parsedMsg.login);
     }
 
-    if('target' in parsedMsg) {
+    if(parsedMsg.namak) {
+      if(!parsedMsg.target) {
+        client.send('Target is required');
+        // throw new InvalidTarget();
+      }
+    }
+
+    if(parsedMsg.target) {
       if (!parsedMsg.namak) {
         client.send('Namak is required');
         // throw new InvalidNamak();

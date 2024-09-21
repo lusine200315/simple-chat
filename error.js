@@ -40,6 +40,7 @@ module.exports = {
     EmptyMessage,
     ClientExist,
     InvalidLogin,
+    InvalidTarget,
     InvalidNamak,
     InvalidMessage,
 };
