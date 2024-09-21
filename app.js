@@ -2,7 +2,7 @@ const webSocket = require("ws");
 const { EmptyMessage, ClientExist, InvalidMessage, InvalidNamak } = require("./error");
 
 //create server socket
-const server = new webSocket.Server({ port: 4001 });
+const server = new webSocket.Server({ port: 4000 });
 
 const all_clients = {};
 
@@ -29,13 +29,13 @@ server.on("connection", (client) => {
       if(parsedMsg.login in all_clients) {
         client.send('Client already exist');
         // throw new ClientExist();
+      } else {
+        all_clients[parsedMsg.login] = client;
+        client.send('Welocome ' + parsedMsg.login);
       };
-
-      all_clients[parsedMsg.login] = client;
-      client.send('Welocome ' + parsedMsg.login);
     }
 
-    if(parsedMsg.namak) {
+    if(parsedMsg.namak) {      
       if(!parsedMsg.target) {
         client.send('Target is required');
         // throw new InvalidTarget();
